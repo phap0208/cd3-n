@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Đăng Ký</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-position: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 97%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="post">
+            <h2>Đăng Ký Tài Khoản</h2>
+            {% csrf_token %}
+            <div class="form-group">
+                <label name="id_username">Tên đăng nhập:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label name="id_password1">Mật khẩu:</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                <label name="id_password2">Xác nhận mật khẩu:</label>
+                {{ form.password2 }}
+            </div>
+            <button type="submit">Đăng Ký</button>
+            <p>Nếu đã có tài khoản, <a href="{% url 'login' %}">Đăng Nhập Ngay</a></p>
+        </form>
+    </div>
+</body>
+</html>

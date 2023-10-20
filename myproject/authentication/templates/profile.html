@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    {% if user_profile %}
+        <h2>{{ user_profile.user.username }}</h2>
+        <p>{{ user_profile.bio }}</p>
+        {% if user_profile.avatar %}
+            <img src="{{ user_profile.avatar.url }}" alt="User Avatar">
+        {% endif %}
+    {% else %}
+        <p>Profile not found.</p>
+    {% endif %}
+</body>
+</html>
